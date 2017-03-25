@@ -98,7 +98,53 @@
                     <view key="view" contentMode="scaleToFill" id="O4K-3f-R5V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="393" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpT-5h-nSi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="393" id="pFK-nS-L6F" customClass="PostCell" customModule="Insta" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="393"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFK-nS-L6F" id="Ltl-4E-Ka4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-Dq-KNM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pp2-sY-O6t">
+                                                    <rect key="frame" x="8" y="363" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pp2-sY-O6t" firstAttribute="top" secondItem="EfT-Dq-KNM" secondAttribute="bottom" constant="8" id="6St-Rr-J9M"/>
+                                                <constraint firstAttribute="bottom" secondItem="pp2-sY-O6t" secondAttribute="bottom" constant="8" id="7V4-F2-Uhj"/>
+                                                <constraint firstAttribute="trailing" secondItem="EfT-Dq-KNM" secondAttribute="trailing" id="FUD-Qy-Z1I"/>
+                                                <constraint firstItem="EfT-Dq-KNM" firstAttribute="top" secondItem="Ltl-4E-Ka4" secondAttribute="top" id="Gbi-UJ-gQb"/>
+                                                <constraint firstItem="pp2-sY-O6t" firstAttribute="leading" secondItem="Ltl-4E-Ka4" secondAttribute="leading" constant="8" id="MQg-2O-9He"/>
+                                                <constraint firstAttribute="trailing" secondItem="pp2-sY-O6t" secondAttribute="trailing" constant="8" id="RRc-0U-vBl"/>
+                                                <constraint firstItem="EfT-Dq-KNM" firstAttribute="leading" secondItem="Ltl-4E-Ka4" secondAttribute="leading" id="YjO-tG-gCz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="pp2-sY-O6t" id="ELw-3c-SWH"/>
+                                            <outlet property="postImageView" destination="EfT-Dq-KNM" id="6ps-Tc-XdK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Kg-TP-7tJ" firstAttribute="top" secondItem="IpT-5h-nSi" secondAttribute="bottom" id="8Ph-SO-k6l"/>
+                            <constraint firstAttribute="trailing" secondItem="IpT-5h-nSi" secondAttribute="trailing" id="W4J-4O-jH9"/>
+                            <constraint firstItem="IpT-5h-nSi" firstAttribute="leading" secondItem="O4K-3f-R5V" secondAttribute="leading" id="dFX-Hy-rLX"/>
+                            <constraint firstItem="IpT-5h-nSi" firstAttribute="top" secondItem="nMW-nf-DSS" secondAttribute="bottom" id="oPo-i2-L0H"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SDe-Jz-3n2">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="T6b-3W-N5p">
@@ -113,13 +159,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="IpT-5h-nSi" id="Ya0-8n-vXu"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="EVV-Ip-NAU"/>
                         <segue destination="hQZ-Qv-Yl5" kind="show" identifier="postFormSegue" id="UGP-ZW-FJt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mki-ep-tw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="-129"/>
+            <point key="canvasLocation" x="2036" y="-129.08545727136433"/>
         </scene>
         <!--Post Form View Controller-->
         <scene sceneID="vsZ-AE-xuW">
@@ -145,6 +192,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onP-Cl-gY8">
                                 <rect key="frame" x="24" y="380.5" width="327" height="30"/>
                                 <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="onPostButton:" destination="hQZ-Qv-Yl5" eventType="touchUpInside" id="Gkl-jk-qVD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,6 +215,7 @@
                         <outlet property="captionField" destination="UHC-DO-adu" id="Hen-2A-kla"/>
                         <outlet property="chosenImageView" destination="Vsz-uR-9je" id="exl-2L-cXK"/>
                         <outlet property="postButton" destination="onP-Cl-gY8" id="MrS-VD-nWc"/>
+                        <segue destination="uJ1-iH-7Qr" kind="show" identifier="postedImageSegue" id="MuB-a6-08H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7r-Ve-jdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,7 +227,7 @@
             <objects>
                 <navigationController storyboardIdentifier="feedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="mwY-WB-Grx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wab-XG-L4N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Wab-XG-L4N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -190,4 +241,7 @@
             <point key="canvasLocation" x="1088.8" y="169.56521739130437"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rZ8-9Y-wAA"/>
+    </inferredMetricsTieBreakers>
 </document>

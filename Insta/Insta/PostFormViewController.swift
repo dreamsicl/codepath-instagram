@@ -28,7 +28,33 @@ class PostFormViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
+    @IBAction func onPostButton(_ sender: Any) {
+        // post image to Parse
+        Post.postUserImage(image: self.chosenImage, withCaption: self.captionField.text) { (success: Bool, error: Error?) in
+            if (success) {
+                print("posted successfully")
+                self.performSegue(withIdentifier: "postedImageSegue", sender: self)
+            } else {
+                print("onPostButton(): postUserImage(): ERROR: \(error?.localizedDescription)")
+            }
+        }
+        
+        
+        // return view to Feed
+    }
+    
     /*
     // MARK: - Navigation
 

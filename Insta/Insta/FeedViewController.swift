@@ -9,14 +9,18 @@
 import UIKit
 import Parse
 
-class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var chosenImage: UIImage?
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,10 +37,23 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    // MARK: Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostCell
+        
+        return cell
+    }
+    
+    
+    // MARK: Image Picker/Post Button
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
         self.chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        // let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         self.performSegue(withIdentifier: "postFormSegue", sender: self)
         
