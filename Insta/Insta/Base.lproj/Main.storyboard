@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="393" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpT-5h-nSi">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="393" id="pFK-nS-L6F" customClass="PostCell" customModule="Insta" customModuleProvider="target">
@@ -143,7 +143,7 @@
                             <constraint firstItem="5Kg-TP-7tJ" firstAttribute="top" secondItem="IpT-5h-nSi" secondAttribute="bottom" id="8Ph-SO-k6l"/>
                             <constraint firstAttribute="trailing" secondItem="IpT-5h-nSi" secondAttribute="trailing" id="W4J-4O-jH9"/>
                             <constraint firstItem="IpT-5h-nSi" firstAttribute="leading" secondItem="O4K-3f-R5V" secondAttribute="leading" id="dFX-Hy-rLX"/>
-                            <constraint firstItem="IpT-5h-nSi" firstAttribute="top" secondItem="nMW-nf-DSS" secondAttribute="bottom" id="oPo-i2-L0H"/>
+                            <constraint firstItem="IpT-5h-nSi" firstAttribute="top" secondItem="O4K-3f-R5V" secondAttribute="top" id="xMv-zl-O4B"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SDe-Jz-3n2">
@@ -181,25 +181,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vsz-uR-9je">
-                                <rect key="frame" x="8" y="80" width="359" height="222.5"/>
+                                <rect key="frame" x="8" y="80" width="359" height="223"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHC-DO-adu">
-                                <rect key="frame" x="8" y="318.5" width="359" height="30"/>
+                                <rect key="frame" x="8" y="319" width="359" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onP-Cl-gY8">
-                                <rect key="frame" x="24" y="380.5" width="327" height="30"/>
+                                <rect key="frame" x="24" y="381" width="327" height="30"/>
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="onPostButton:" destination="hQZ-Qv-Yl5" eventType="touchUpInside" id="Gkl-jk-qVD"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gcg-de-Mpk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Vsz-uR-9je" firstAttribute="top" secondItem="uTj-fI-ZsG" secondAttribute="bottom" constant="16" id="6UY-Pa-Q9O"/>
+                            <constraint firstAttribute="trailing" secondItem="gcg-de-Mpk" secondAttribute="trailing" id="AqV-wG-wLe"/>
+                            <constraint firstItem="gcg-de-Mpk" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" id="BrN-vM-7lh"/>
+                            <constraint firstItem="gcg-de-Mpk" firstAttribute="top" secondItem="uTj-fI-ZsG" secondAttribute="bottom" id="IfQ-w8-i6j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="onP-Cl-gY8" secondAttribute="trailing" constant="8" id="JyM-Bp-MoT"/>
                             <constraint firstItem="UHC-DO-adu" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" constant="8" id="SPL-30-Gyy"/>
                             <constraint firstItem="Vsz-uR-9je" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" constant="8" id="aCo-at-2DI"/>
@@ -242,6 +248,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rZ8-9Y-wAA"/>
+        <segue reference="MuB-a6-08H"/>
     </inferredMetricsTieBreakers>
 </document>

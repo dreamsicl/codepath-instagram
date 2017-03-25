@@ -8,13 +8,27 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
-//    var post: PFObject!
+    var post: PFObject? {
+        didSet {
+//            print("\(post)")
+            let postImageFile = post?["media"] as? PFFile
+            postImageFile?.getDataInBackground { (data: Data?, error: Error?) in
+                if let data = data {
+                    self.postImageView.image = UIImage(data: data)
+                }
+            }
+
+            // populate caption
+            self.captionLabel.text = post?["caption"] as? String
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

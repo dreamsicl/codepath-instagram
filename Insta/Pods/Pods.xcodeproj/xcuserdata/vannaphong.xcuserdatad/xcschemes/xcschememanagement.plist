@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ParseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Insta.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DC46658F2D26223C4EF4A309BB94558</key>
+		<key>A760316124FD796EF09C09479E9F0021</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C74D47B051BF84CA30E0723F127F42AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4D528C387443D72FE5F0D023367B56F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

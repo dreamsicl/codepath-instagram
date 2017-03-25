@@ -32,13 +32,13 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // fetch data asynchronously
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
-
+            print("querying parse...")
             if let posts = posts {
                 self.posts = posts
                 self.tableView.reloadData()
             } else {
                 // handle error
-                print("parse query error: \(error?.localizedDescription)")
+                print("error: \(error?.localizedDescription)")
             }
         }
     }
@@ -59,8 +59,8 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     // MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let posts = self.posts {
-            return posts.count
+        if self.posts != nil {
+            return 1
         } else {
             return 0
         }
@@ -68,28 +68,30 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostCell
-        let post = self.posts?[indexPath.row]
-        print("\(post)")
-        
-        // fetch post's image from parse
-        let postImageFile = post?["media"] as? PFFile
-        postImageFile?.getDataInBackground { (data: Data?, error: Error?) in
-            if let data = data {
-                cell.postImageView.image = UIImage(data: data)
-            }
-        }
-        
-        // populate caption
-        let postCaption = post?["caption"] as? String
-        if (postCaption?.isEmpty)! {
-            cell.captionLabel.isHidden = true
-        } else {
-            cell.captionLabel.text = postCaption
-        }
+        cell.post = self.posts?[indexPath.section]
         
         return cell
     }
     
+    // table header
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if let posts = self.posts {
+            return posts.count
+        } else {
+            return 0
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let posts = self.posts {
+            let user = posts[section]["author"] as! PFUser
+            print("\(user.username)")
+            return user.username!
+        } else {
+            return ""
+        }
+    }
     
     // MARK: Image Picker/Post Button
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
