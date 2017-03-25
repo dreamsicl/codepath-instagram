@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class Post: NSObject {
+class Post: PFObject {
     /**
      * Other methods
      */

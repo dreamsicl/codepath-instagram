@@ -12,6 +12,7 @@ import Parse
 class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var chosenImage: UIImage?
+    var posts: [PFObject]?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +22,25 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        // get any posts from Parse
+        // construct PFQuery
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
+
+            if let posts = posts {
+                self.posts = posts
+                self.tableView.reloadData()
+            } else {
+                // handle error
+                print("parse query error: \(error?.localizedDescription)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,11 +59,33 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     // MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if let posts = self.posts {
+            return posts.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostCell
+        let post = self.posts?[indexPath.row]
+        print("\(post)")
+        
+        // fetch post's image from parse
+        let postImageFile = post?["media"] as? PFFile
+        postImageFile?.getDataInBackground { (data: Data?, error: Error?) in
+            if let data = data {
+                cell.postImageView.image = UIImage(data: data)
+            }
+        }
+        
+        // populate caption
+        let postCaption = post?["caption"] as? String
+        if (postCaption?.isEmpty)! {
+            cell.captionLabel.isHidden = true
+        } else {
+            cell.captionLabel.text = postCaption
+        }
         
         return cell
     }
