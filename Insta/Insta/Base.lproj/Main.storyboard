@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -94,7 +95,7 @@
                         <viewControllerLayoutGuide type="top" id="nMW-nf-DSS"/>
                         <viewControllerLayoutGuide type="bottom" id="5Kg-TP-7tJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="O4K-3f-R5V" customClass="Fee">
+                    <view key="view" contentMode="scaleToFill" id="O4K-3f-R5V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,14 +106,70 @@
                                 <action selector="onLogoutButton:" destination="uJ1-iH-7Qr" id="iPD-Ec-ZPG"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Camera" id="z7P-cg-QFx">
+                            <connections>
+                                <action selector="onCameraButton:" destination="uJ1-iH-7Qr" id="uq7-QQ-nZP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="EVV-Ip-NAU"/>
+                        <segue destination="hQZ-Qv-Yl5" kind="show" identifier="postFormSegue" id="UGP-ZW-FJt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mki-ep-tw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="169.56521739130437"/>
+            <point key="canvasLocation" x="2036" y="-129"/>
+        </scene>
+        <!--Post Form View Controller-->
+        <scene sceneID="vsZ-AE-xuW">
+            <objects>
+                <viewController storyboardIdentifier="postForm" id="hQZ-Qv-Yl5" customClass="PostFormViewController" customModule="Insta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uTj-fI-ZsG"/>
+                        <viewControllerLayoutGuide type="bottom" id="KYX-Kl-6Vn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tHu-cC-PZX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vsz-uR-9je">
+                                <rect key="frame" x="8" y="80" width="359" height="222.5"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHC-DO-adu">
+                                <rect key="frame" x="8" y="318.5" width="359" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onP-Cl-gY8">
+                                <rect key="frame" x="24" y="380.5" width="327" height="30"/>
+                                <state key="normal" title="Post"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vsz-uR-9je" firstAttribute="top" secondItem="uTj-fI-ZsG" secondAttribute="bottom" constant="16" id="6UY-Pa-Q9O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="onP-Cl-gY8" secondAttribute="trailing" constant="8" id="JyM-Bp-MoT"/>
+                            <constraint firstItem="UHC-DO-adu" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" constant="8" id="SPL-30-Gyy"/>
+                            <constraint firstItem="Vsz-uR-9je" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" constant="8" id="aCo-at-2DI"/>
+                            <constraint firstItem="UHC-DO-adu" firstAttribute="top" secondItem="Vsz-uR-9je" secondAttribute="bottom" constant="16" id="jgp-od-e2l"/>
+                            <constraint firstItem="UHC-DO-adu" firstAttribute="centerY" secondItem="tHu-cC-PZX" secondAttribute="centerY" id="m9a-oA-waP"/>
+                            <constraint firstItem="onP-Cl-gY8" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leadingMargin" constant="8" id="oLV-cA-ECi"/>
+                            <constraint firstAttribute="trailing" secondItem="Vsz-uR-9je" secondAttribute="trailing" constant="8" id="ryJ-hV-FBh"/>
+                            <constraint firstAttribute="trailing" secondItem="UHC-DO-adu" secondAttribute="trailing" constant="8" id="s4O-C5-Pbk"/>
+                            <constraint firstItem="onP-Cl-gY8" firstAttribute="top" secondItem="UHC-DO-adu" secondAttribute="bottom" constant="32" id="zMn-ZI-aeL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="captionField" destination="UHC-DO-adu" id="Hen-2A-kla"/>
+                        <outlet property="chosenImageView" destination="Vsz-uR-9je" id="exl-2L-cXK"/>
+                        <outlet property="postButton" destination="onP-Cl-gY8" id="MrS-VD-nWc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p7r-Ve-jdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2823.1999999999998" y="-133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vj8-fX-xNp">

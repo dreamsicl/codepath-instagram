@@ -6,6 +6,7 @@ target 'Insta' do
   use_frameworks!
 
   # Pods for Insta
-  pod ‘Parse’
+  pod 'Parse'
+  pod 'FontAwesome.swift'
 
 end

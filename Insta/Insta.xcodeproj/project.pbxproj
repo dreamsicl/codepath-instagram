@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		16D1C58AE977AA800F34021D /* Pods_Insta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2C63028992C505F5C89D2C /* Pods_Insta.framework */; };
+		C52D91671E85D9FF0044BAD4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52D91661E85D9FF0044BAD4 /* Post.swift */; };
+		C52D91691E85E27B0044BAD4 /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52D91681E85E27B0044BAD4 /* PostFormViewController.swift */; };
 		C53B19E81E6FCEFF00435DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53B19E71E6FCEFF00435DCF /* AppDelegate.swift */; };
 		C53B19EA1E6FCEFF00435DCF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53B19E91E6FCEFF00435DCF /* LoginViewController.swift */; };
 		C53B19ED1E6FCEFF00435DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C53B19EB1E6FCEFF00435DCF /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		0A2C63028992C505F5C89D2C /* Pods_Insta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F98745FC5B122E4CE011BF /* Pods-Insta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insta/Pods-Insta.debug.xcconfig"; sourceTree = "<group>"; };
 		AFC75DBD2BC20CD7E0737F4F /* Pods-Insta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insta/Pods-Insta.release.xcconfig"; sourceTree = "<group>"; };
+		C52D91661E85D9FF0044BAD4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C52D91681E85E27B0044BAD4 /* PostFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		C53B19E41E6FCEFF00435DCF /* Insta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53B19E71E6FCEFF00435DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C53B19E91E6FCEFF00435DCF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +54,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C52D91651E85D9D00044BAD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C52D91661E85D9FF0044BAD4 /* Post.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C53B19DB1E6FCEFE00435DCF = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +83,7 @@
 		C53B19E61E6FCEFF00435DCF /* Insta */ = {
 			isa = PBXGroup;
 			children = (
+				C52D91651E85D9D00044BAD4 /* Models */,
 				C55CCC3A1E70E620005FA4C9 /* View Controllers */,
 				C53B19E71E6FCEFF00435DCF /* AppDelegate.swift */,
 				C53B19EB1E6FCEFF00435DCF /* Main.storyboard */,
@@ -86,6 +99,7 @@
 			children = (
 				C53B19E91E6FCEFF00435DCF /* LoginViewController.swift */,
 				C55CCC3B1E70E684005FA4C9 /* FeedViewController.swift */,
+				C52D91681E85E27B0044BAD4 /* PostFormViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -222,9 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C52D91691E85E27B0044BAD4 /* PostFormViewController.swift in Sources */,
 				C53B19EA1E6FCEFF00435DCF /* LoginViewController.swift in Sources */,
 				C55CCC3C1E70E684005FA4C9 /* FeedViewController.swift in Sources */,
 				C53B19E81E6FCEFF00435DCF /* AppDelegate.swift in Sources */,
+				C52D91671E85D9FF0044BAD4 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
