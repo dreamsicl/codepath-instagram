@@ -10,5 +10,6 @@ target 'Insta' do
   pod 'ParseUI'
   pod ‘MBProgressHUD’
   pod 'FontAwesome.swift'
+  pod ‘FaveButton’
 
 end
