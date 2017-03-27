@@ -28,12 +28,12 @@ The following **additional** features are implemented:
 - [X] Animated like button
 - [X] Simple splash screen
 - [X] Custom table section header using xib
-- 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. How to organize the data structure for a comments section for each post
 2. How to offer filters for the user to pick from
+3. How to make the image views automatically resize according to aspect ratio
 
 ## Video Walkthrough 
 
