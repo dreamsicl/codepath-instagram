@@ -134,6 +134,9 @@
                                                                     <color key="value" red="1" green="0.3352236421" blue="0.3768100727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onFaveButton:" destination="pFK-nS-L6F" eventType="touchUpInside" id="aab-9s-TKR"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-CA-71i">
                                                             <rect key="frame" x="34" y="8.5" width="40.5" height="14.5"/>
@@ -178,6 +181,8 @@
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="captionLabel" destination="pp2-sY-O6t" id="ELw-3c-SWH"/>
+                                            <outlet property="faveButton" destination="G5l-aQ-0mr" id="jqy-xw-kY7"/>
+                                            <outlet property="likeCountLabel" destination="TYj-CA-71i" id="HaC-lN-Gqk"/>
                                             <outlet property="postImageView" destination="EfT-Dq-KNM" id="6ps-Tc-XdK"/>
                                         </connections>
                                     </tableViewCell>

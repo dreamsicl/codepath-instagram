@@ -24,8 +24,6 @@ class PostFormViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         chosenImageView.image = chosenImage
-        chosenImageView.sizeToFit()
-        
         
         // tap image to pull up image picker again
 //        let imgTap = UITapGestureRecognizer(target: self, action: "onImageTap")

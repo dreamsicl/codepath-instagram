@@ -37,6 +37,22 @@ class Post: PFObject {
     }
     
     /**
+     Method to like a post.
+     */
+    class func likePost(post: PFObject, liking: Bool) {
+        
+        var currentLikes = post["likesCount"] as! Int
+        if liking {
+            currentLikes += 1
+        } else {
+            currentLikes -= 1
+        }
+        post["likesCount"] = currentLikes
+        
+        post.saveInBackground()
+    }
+    
+    /**
      Method to convert UIImage to PFFile
      
      - parameter image: Image that the user wants to upload to parse
