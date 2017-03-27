@@ -1,8 +1,8 @@
-# Project 6 - *Name of App Here*
+# Project 6 - *Insta*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Insta** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -33,7 +33,7 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. How to organize the data structure for a comments section for each post
-2. 
+2. How to offer filters for the user to pick from
 
 ## Video Walkthrough 
 
@@ -45,7 +45,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I installed pods MBProgressHUD for the uploading HUD, Font Awesome for all icons used, and FaveButton for the like button animation. 
 
 ## License
 
