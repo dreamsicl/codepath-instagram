@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
+
 
 class PostFormViewController: UIViewController {
 
@@ -16,6 +18,7 @@ class PostFormViewController: UIViewController {
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var postButton: UIButton!
     
+    @IBOutlet weak var progressView: UIProgressView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +31,7 @@ class PostFormViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // image resize function
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let resizeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -41,18 +45,43 @@ class PostFormViewController: UIViewController {
     }
     
     @IBAction func onPostButton(_ sender: Any) {
+        // TODO: resize image for parse 10mb limit
+        
+        // show HUD
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "Uploading..."
+        
         // post image to Parse
         Post.postUserImage(image: self.chosenImage, withCaption: self.captionField.text) { (success: Bool, error: Error?) in
+            
+            // hide HUD on completion
+            hud.hide(animated: true)
+            
             if (success) {
+                // return view to Feed
                 print("posted successfully")
                 self.performSegue(withIdentifier: "postedImageSegue", sender: self)
             } else {
+                
+                // unsuccessful upload, make alert for user
+                let alertController = UIAlertController(title: "Error", message: "Could not upload post. Try again later.", preferredStyle: .alert)
+                
+                // add ok button to alert
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                    // do nothing on completion
+                })
+                alertController.addAction(ok)
+                
+                // present alert
+                self.present(alertController, animated: true, completion: { 
+                    // do nothing on completion
+                })
                 print("onPostButton(): postUserImage(): ERROR: \(error?.localizedDescription)")
             }
+            
+            
         }
         
-        
-        // return view to Feed
     }
     
     /*

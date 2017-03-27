@@ -107,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="393"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFK-nS-L6F" id="Ltl-4E-Ka4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="393"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-Dq-KNM">
@@ -181,7 +181,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vsz-uR-9je">
-                                <rect key="frame" x="8" y="80" width="359" height="223"/>
+                                <rect key="frame" x="8" y="36" width="359" height="267"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHC-DO-adu">
                                 <rect key="frame" x="8" y="319" width="359" height="30"/>
@@ -196,16 +196,10 @@
                                     <action selector="onPostButton:" destination="hQZ-Qv-Yl5" eventType="touchUpInside" id="Gkl-jk-qVD"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gcg-de-Mpk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Vsz-uR-9je" firstAttribute="top" secondItem="uTj-fI-ZsG" secondAttribute="bottom" constant="16" id="6UY-Pa-Q9O"/>
-                            <constraint firstAttribute="trailing" secondItem="gcg-de-Mpk" secondAttribute="trailing" id="AqV-wG-wLe"/>
-                            <constraint firstItem="gcg-de-Mpk" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" id="BrN-vM-7lh"/>
-                            <constraint firstItem="gcg-de-Mpk" firstAttribute="top" secondItem="uTj-fI-ZsG" secondAttribute="bottom" id="IfQ-w8-i6j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="onP-Cl-gY8" secondAttribute="trailing" constant="8" id="JyM-Bp-MoT"/>
                             <constraint firstItem="UHC-DO-adu" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" constant="8" id="SPL-30-Gyy"/>
                             <constraint firstItem="Vsz-uR-9je" firstAttribute="leading" secondItem="tHu-cC-PZX" secondAttribute="leading" constant="8" id="aCo-at-2DI"/>
@@ -233,7 +227,7 @@
             <objects>
                 <navigationController storyboardIdentifier="feedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="mwY-WB-Grx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Wab-XG-L4N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wab-XG-L4N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

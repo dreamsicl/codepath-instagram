@@ -8,6 +8,7 @@ target 'Insta' do
   # Pods for Insta
   pod 'Parse'
   pod 'ParseUI'
+  pod ‘MBProgressHUD’
   pod 'FontAwesome.swift'
 
 end

@@ -86,7 +86,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let posts = self.posts {
             let user = posts[section]["author"] as! PFUser
-            print("\(user.username)")
+//            print("\(user.username)")
             return user.username!
         } else {
             return ""

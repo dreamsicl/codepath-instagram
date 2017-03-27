@@ -13,7 +13,7 @@ class Post: PFObject {
     /**
      * Other methods
      */
-    
+    public static var progress: Float?
     /**
      Method to add a user post to Parse (uploading image file)
      
@@ -44,7 +44,6 @@ class Post: PFObject {
      - returns: PFFile for the the data in the image
      */
     class func getPFFileFromImage(image: UIImage?) -> PFFile? {
-        // check if image is not nil
         if let image = image {
             // get image data and check if that is not nil
             if let imageData = UIImagePNGRepresentation(image) {
