@@ -22,6 +22,7 @@ class PostCell: UITableViewCell {
             postImageFile?.getDataInBackground { (data: Data?, error: Error?) in
                 if let data = data {
                     self.postImageView.image = UIImage(data: data)
+                    self.postImageView.sizeToFit()
                 }
             }
 

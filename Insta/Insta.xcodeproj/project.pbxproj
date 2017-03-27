@@ -16,6 +16,8 @@
 		C53B19EF1E6FCEFF00435DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C53B19EE1E6FCEFF00435DCF /* Assets.xcassets */; };
 		C53B19F21E6FCEFF00435DCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C53B19F01E6FCEFF00435DCF /* LaunchScreen.storyboard */; };
 		C55CCC3C1E70E684005FA4C9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CCC3B1E70E684005FA4C9 /* FeedViewController.swift */; };
+		C5783F661E88D1EA00364F6C /* TableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5783F651E88D1EA00364F6C /* TableSectionHeader.swift */; };
+		C5783F6E1E88E21C00364F6C /* TableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5783F6D1E88E21B00364F6C /* TableSectionHeader.xib */; };
 		C57F628E1E8613850022170A /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F628D1E8613850022170A /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		C53B19F11E6FCEFF00435DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C53B19F31E6FCF0000435DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C55CCC3B1E70E684005FA4C9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		C5783F651E88D1EA00364F6C /* TableSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionHeader.swift; sourceTree = "<group>"; };
+		C5783F6D1E88E21B00364F6C /* TableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableSectionHeader.xib; sourceTree = "<group>"; };
 		C57F628D1E8613850022170A /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				C57F628D1E8613850022170A /* PostCell.swift */,
+				C5783F651E88D1EA00364F6C /* TableSectionHeader.swift */,
+				C5783F6D1E88E21B00364F6C /* TableSectionHeader.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C53B19F21E6FCEFF00435DCF /* LaunchScreen.storyboard in Resources */,
+				C5783F6E1E88E21C00364F6C /* TableSectionHeader.xib in Resources */,
 				C53B19EF1E6FCEFF00435DCF /* Assets.xcassets in Resources */,
 				C53B19ED1E6FCEFF00435DCF /* Main.storyboard in Resources */,
 			);
@@ -249,6 +256,7 @@
 			files = (
 				C52D91691E85E27B0044BAD4 /* PostFormViewController.swift in Sources */,
 				C53B19EA1E6FCEFF00435DCF /* LoginViewController.swift in Sources */,
+				C5783F661E88D1EA00364F6C /* TableSectionHeader.swift in Sources */,
 				C55CCC3C1E70E684005FA4C9 /* FeedViewController.swift in Sources */,
 				C53B19E81E6FCEFF00435DCF /* AppDelegate.swift in Sources */,
 				C52D91671E85D9FF0044BAD4 /* Post.swift in Sources */,

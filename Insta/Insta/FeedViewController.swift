@@ -15,14 +15,19 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var posts: [PFObject]?
     
     @IBOutlet weak var tableView: UITableView!
+    let headerIdentifier = "TableSectionHeader"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // table view setup
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        // header nib
+        let nib = UINib(nibName: headerIdentifier, bundle: nil)
+        tableView.register(nib, forHeaderFooterViewReuseIdentifier: headerIdentifier)
+
         // get any posts from Parse
         // construct PFQuery
         let query = PFQuery(className: "Post")
@@ -58,7 +63,22 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     // MARK: Table View
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        // individual section for each post
+        
+        if let posts = self.posts {
+            return posts.count
+        } else {
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // one row per post
+        
         if self.posts != nil {
             return 1
         } else {
@@ -68,37 +88,46 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostCell
+        
         cell.post = self.posts?[indexPath.section]
         
         return cell
     }
     
     // table header
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if let posts = self.posts {
-            return posts.count
-        } else {
-            return 0
-        }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier) as! TableSectionHeader
+        let post = posts?[section]
+        
+        // populate username
+        let user = post?["author"] as! PFUser
+        header.usernameLabel.text = user.username
+        
+        // format timestamp
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        header.timestampLabel.text = formatter.string(from: (post?.createdAt)!).uppercased()
+        
+        return header
     }
     
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let posts = self.posts {
-            let user = posts[section]["author"] as! PFUser
-//            print("\(user.username)")
-            return user.username!
-        } else {
-            return ""
-        }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return TableSectionHeader.height
     }
     
     // MARK: Image Picker/Post Button
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Get the image captured by the UIImagePickerController
-        self.chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        // let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
+        // Get the image captured by the UIImagePickerController and save to self.chosenImage
+        if info[UIImagePickerControllerEditedImage] != nil {
+            // cropped image
+            self.chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage
+        } else {
+            // original image
+            self.chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        }
+        
+        // segue to form
         self.performSegue(withIdentifier: "postFormSegue", sender: self)
         
         // Dismiss UIImagePickerController to go back to your original view controller

@@ -24,12 +24,55 @@ class PostFormViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         chosenImageView.image = chosenImage
+        chosenImageView.sizeToFit()
+        
+        
+        // tap image to pull up image picker again
+//        let imgTap = UITapGestureRecognizer(target: self, action: "onImageTap")
+//        chosenImageView.addGestureRecognizer(imgTap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Images
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        // Get the image captured by the UIImagePickerController and save to self.chosenImageView
+//        if info[UIImagePickerControllerEditedImage] != nil {
+//            // cropped image
+//            self.chosenImageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+//        } else {
+//            // original image
+//            self.chosenImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        }
+//        
+//        // Dismiss UIImagePickerController to go back to your original view controller
+//        dismiss(animated: true, completion: nil)
+//    }
+//    
+//    // tap image to show picker controller
+//    func onImageTap() {
+//        
+//        // create picker controller
+//        let vc = UIImagePickerController()
+//        vc.delegate =
+//        vc.allowsEditing = true
+//        
+//        // make sure camera is available to present
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            print("Camera is available 📸")
+//            vc.sourceType = .camera
+//        } else {
+//            print("Camera 🚫 available so we will use photo library instead")
+//            vc.sourceType = .photoLibrary
+//        }
+//        
+//        // present picker controller
+//        self.present(vc, animated: true, completion: nil)
+//    }
+
     
     // image resize function
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
