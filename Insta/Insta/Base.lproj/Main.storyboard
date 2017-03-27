@@ -107,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="393"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFK-nS-L6F" id="Ltl-4E-Ka4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="392.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-Dq-KNM">
@@ -119,10 +119,18 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5l-aQ-0mr" customClass="FaveButton" customModule="FaveButton">
-                                                    <rect key="frame" x="321" y="360" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5l-aQ-0mr" customClass="FaveButton" customModule="FaveButton">
+                                                    <rect key="frame" x="345" y="364" width="22" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="cv0-Ra-TMO"/>
+                                                        <constraint firstAttribute="height" constant="22" id="tHh-RB-zOL"/>
+                                                    </constraints>
+                                                    <state key="normal" image="heart"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                                            <color key="value" red="1" green="0.3352236421" blue="0.3768100727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -133,6 +141,8 @@
                                                 <constraint firstItem="pp2-sY-O6t" firstAttribute="leading" secondItem="Ltl-4E-Ka4" secondAttribute="leading" constant="8" id="MQg-2O-9He"/>
                                                 <constraint firstAttribute="trailing" secondItem="pp2-sY-O6t" secondAttribute="trailing" constant="8" id="RRc-0U-vBl"/>
                                                 <constraint firstItem="EfT-Dq-KNM" firstAttribute="leading" secondItem="Ltl-4E-Ka4" secondAttribute="leading" id="YjO-tG-gCz"/>
+                                                <constraint firstItem="G5l-aQ-0mr" firstAttribute="top" secondItem="EfT-Dq-KNM" secondAttribute="bottom" constant="4" id="jJR-br-LEy"/>
+                                                <constraint firstAttribute="trailing" secondItem="G5l-aQ-0mr" secondAttribute="trailing" constant="8" id="mgi-iD-Mez"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -246,6 +256,9 @@
             <point key="canvasLocation" x="1088.8" y="169.56521739130437"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MuB-a6-08H"/>
     </inferredMetricsTieBreakers>
