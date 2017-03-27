@@ -27,11 +27,11 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etv-oE-FKv">
                             <rect key="frame" x="8" y="23" width="28.5" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.96683104458791191" green="0.96424814323458763" blue="0.96039406955632023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="kCX-SK-zog" firstAttribute="centerY" secondItem="xlU-Fs-8Pe" secondAttribute="centerY" constant="-8" id="1Jy-Nb-Tew"/>
                         <constraint firstItem="kCX-SK-zog" firstAttribute="leading" secondItem="xlU-Fs-8Pe" secondAttribute="leading" constant="8" id="MFt-E6-aGe"/>
