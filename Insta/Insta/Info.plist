@@ -45,5 +45,10 @@
 	<string>to take pictures for &quot;instagram&quot;</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>to choose pictures for &quot;instagram&quot;</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
